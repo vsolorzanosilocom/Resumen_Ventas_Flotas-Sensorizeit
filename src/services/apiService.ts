@@ -12,7 +12,11 @@ const CONFIG_STORAGE_KEY = 'silocom_flotas_config_v1';
 const CACHE_STORAGE_KEY = 'silocom_flotas_cache_v1';
 
 export const DEFAULT_CONFIG: AppConfig = {
-  scriptUrl: '', // URL del Web App de Google Apps Script desplegado como aplicación web pública
+  // URL oficial permanente de Google Apps Script vinculada a Google Sheets
+  scriptUrl: (
+    import.meta.env.VITE_APPS_SCRIPT_URL ||
+    'https://script.google.com/macros/s/AKfycbx8BEU3_ZoPe0Ruh1677lPfw5r7veNc0HgQAkz165lU9GW_FkODl4kQ7ihFLpLaOF5P/exec'
+  ).trim(),
   spreadsheetId: '1q7PHdhNAUTMBApw3Zd0dXrFCf3jbyODO65L1gCAa7Xo',
   autoSync: true,
 };
@@ -21,7 +25,13 @@ export function getAppConfig(): AppConfig {
   try {
     const saved = localStorage.getItem(CONFIG_STORAGE_KEY);
     if (saved) {
-      return { ...DEFAULT_CONFIG, ...JSON.parse(saved) };
+      const parsed = JSON.parse(saved);
+      // Auto-migración: si el usuario tenía la URL vacía en su navegador, usar la predeterminada fija
+      if ((!parsed.scriptUrl || parsed.scriptUrl.trim() === '') && DEFAULT_CONFIG.scriptUrl) {
+        parsed.scriptUrl = DEFAULT_CONFIG.scriptUrl;
+        localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify({ ...DEFAULT_CONFIG, ...parsed }));
+      }
+      return { ...DEFAULT_CONFIG, ...parsed };
     }
   } catch (e) {
     console.warn('Error al leer configuración de localStorage:', e);
