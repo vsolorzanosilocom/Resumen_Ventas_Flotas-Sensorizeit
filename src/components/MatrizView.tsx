@@ -19,10 +19,8 @@ import {
   TrendingUp,
   PieChart as PieIcon
 } from 'lucide-react';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import Chart from 'chart.js/auto';
 import { MatrizRecord } from '../types';
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement);
 
 interface MatrizViewProps {
   data: MatrizRecord[];
@@ -38,8 +36,8 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
 
   const lineChartRef = useRef<HTMLCanvasElement | null>(null);
   const donutChartRef = useRef<HTMLCanvasElement | null>(null);
-  const lineChartInstance = useRef<ChartJS | null>(null);
-  const donutChartInstance = useRef<ChartJS | null>(null);
+  const lineChartInstance = useRef<Chart | null>(null);
+  const donutChartInstance = useRef<Chart | null>(null);
 
   // 1. Cálculos de KPIs
   const kpis = useMemo(() => {
@@ -139,7 +137,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
       const labels = Object.keys(timeline);
       const values = Object.values(timeline);
 
-      lineChartInstance.current = new ChartJS(lineChartRef.current, {
+      lineChartInstance.current = new Chart(lineChartRef.current, {
         type: 'line',
         data: {
           labels: labels.length ? labels : ['Sin datos'],
@@ -190,7 +188,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
         }
       });
 
-      donutChartInstance.current = new ChartJS(donutChartRef.current, {
+      donutChartInstance.current = new Chart(donutChartRef.current, {
         type: 'doughnut',
         data: {
           labels: Object.keys(ventasPorTipo),

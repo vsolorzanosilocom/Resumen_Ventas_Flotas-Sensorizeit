@@ -17,10 +17,8 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import Chart from 'chart.js/auto';
 import { RenovacionRecord } from '../types';
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
 interface RenovacionesViewProps {
   data: RenovacionRecord[];
@@ -35,8 +33,8 @@ export const RenovacionesView: React.FC<RenovacionesViewProps> = ({ data, onOpen
 
   const pieChartRef = useRef<HTMLCanvasElement | null>(null);
   const barChartRef = useRef<HTMLCanvasElement | null>(null);
-  const pieChartInstance = useRef<ChartJS | null>(null);
-  const barChartInstance = useRef<ChartJS | null>(null);
+  const pieChartInstance = useRef<Chart | null>(null);
+  const barChartInstance = useRef<Chart | null>(null);
 
   const cleanCurrency = (val: any): number => {
     if (!val) return 0;
@@ -102,7 +100,7 @@ export const RenovacionesView: React.FC<RenovacionesViewProps> = ({ data, onOpen
         servicios[serv] = (servicios[serv] || 0) + 1;
       });
 
-      pieChartInstance.current = new ChartJS(pieChartRef.current, {
+      pieChartInstance.current = new Chart(pieChartRef.current, {
         type: 'pie',
         data: {
           labels: Object.keys(servicios),
@@ -142,7 +140,7 @@ export const RenovacionesView: React.FC<RenovacionesViewProps> = ({ data, onOpen
         .sort((a, b) => b[1] - a[1])
         .slice(0, 5);
 
-      barChartInstance.current = new ChartJS(barChartRef.current, {
+      barChartInstance.current = new Chart(barChartRef.current, {
         type: 'bar',
         data: {
           labels: sortedClients.map(([name]) => name.length > 16 ? name.substring(0, 16) + '...' : name),
