@@ -121,7 +121,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col selection:bg-blue-600 selection:text-white">
       {/* Header Corporativo con SilocomLogo */}
       <Header
         activeTab={activeTab}
@@ -136,23 +136,23 @@ export default function App() {
       {notification && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4 animate-fadeIn">
           <div
-            className={`p-3.5 rounded-xl border flex items-center justify-between text-xs sm:text-sm shadow-lg ${
+            className={`p-3.5 rounded-xl border flex items-center justify-between text-xs sm:text-sm shadow-sm ${
               notification.type === 'success'
-                ? 'bg-emerald-950/60 border-emerald-800 text-emerald-200'
+                ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
                 : notification.type === 'error'
-                ? 'bg-rose-950/60 border-rose-800 text-rose-200'
-                : 'bg-blue-950/60 border-blue-800 text-blue-200'
+                ? 'bg-rose-50 border-rose-200 text-rose-800'
+                : 'bg-blue-50 border-blue-200 text-blue-800'
             }`}
           >
             <div className="flex items-center gap-2.5">
-              {notification.type === 'success' && <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />}
-              {notification.type === 'error' && <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />}
-              {notification.type === 'info' && <Info className="w-4 h-4 text-blue-400 shrink-0" />}
+              {notification.type === 'success' && <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />}
+              {notification.type === 'error' && <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />}
+              {notification.type === 'info' && <Info className="w-4 h-4 text-blue-600 shrink-0" />}
               <span>{notification.message}</span>
             </div>
             <button
               onClick={() => setNotification(null)}
-              className="text-slate-400 hover:text-white font-bold ml-2 cursor-pointer"
+              className="text-slate-400 hover:text-slate-600 font-bold ml-2 cursor-pointer"
             >
               ✕
             </button>
@@ -185,10 +185,10 @@ export default function App() {
       </main>
 
       {/* Footer Corporativo */}
-      <footer className="bg-slate-950 border-t border-slate-900 py-6 text-center text-xs text-slate-500 mt-auto">
+      <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <span>&copy; {new Date().getFullYear()} SILOCOM C.A. Todos los derechos reservados.</span>
-          <span className="font-mono text-[11px] text-slate-600">
+          <span className="font-mono text-[11px] text-slate-400">
             Desarrollo & Arquitectura: Victor Solorzano | Google Sheets ID: {config.spreadsheetId.substring(0, 8)}...
           </span>
         </div>

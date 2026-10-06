@@ -163,12 +163,12 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
           scales: {
             x: {
               grid: { display: false },
-              ticks: { color: '#94a3b8', font: { size: 10 } },
+              ticks: { color: '#64748b', font: { size: 10 } },
             },
             y: {
               beginAtZero: true,
-              grid: { color: 'rgba(51, 65, 85, 0.3)' },
-              ticks: { color: '#94a3b8', font: { size: 10 } },
+              grid: { color: 'rgba(226, 232, 240, 0.8)' },
+              ticks: { color: '#64748b', font: { size: 10 } },
             },
           },
         },
@@ -196,7 +196,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
             {
               data: Object.values(ventasPorTipo),
               backgroundColor: ['#2563eb', '#10b981'],
-              borderColor: '#0f172a',
+              borderColor: '#ffffff',
               borderWidth: 2,
             },
           ],
@@ -207,7 +207,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
           plugins: {
             legend: {
               position: 'bottom',
-              labels: { color: '#cbd5e1', font: { size: 11, weight: 'bold' } },
+              labels: { color: '#334155', font: { size: 11, weight: 'bold' } },
             },
           },
         },
@@ -225,58 +225,58 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
       {/* 1. KPIs Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg flex items-center justify-between">
+        <div className="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Dispositivos Totales
             </p>
-            <h3 id="kpi-dispositivos" className="text-3xl font-black text-white mt-1">
+            <h3 id="kpi-dispositivos" className="text-3xl font-black text-slate-900 mt-1">
               {kpis.dispTotales}
             </h3>
           </div>
-          <div className="bg-blue-500/10 text-blue-400 p-3.5 rounded-xl border border-blue-500/20">
+          <div className="bg-blue-50 text-blue-600 p-3.5 rounded-xl border border-blue-100">
             <Cpu className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg flex items-center justify-between">
+        <div className="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Clientes Únicos
             </p>
-            <h3 id="kpi-clientes-u" className="text-3xl font-black text-white mt-1">
+            <h3 id="kpi-clientes-u" className="text-3xl font-black text-slate-900 mt-1">
               {kpis.clientesUnicos}
             </h3>
           </div>
-          <div className="bg-indigo-500/10 text-indigo-400 p-3.5 rounded-xl border border-indigo-500/20">
+          <div className="bg-indigo-50 text-indigo-600 p-3.5 rounded-xl border border-indigo-100">
             <Building2 className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg flex items-center justify-between">
+        <div className="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Servicios Activos
             </p>
-            <h3 id="kpi-servicios" className="text-3xl font-black text-white mt-1">
+            <h3 id="kpi-servicios" className="text-3xl font-black text-slate-900 mt-1">
               {kpis.serviciosActivos}
             </h3>
           </div>
-          <div className="bg-emerald-500/10 text-emerald-400 p-3.5 rounded-xl border border-emerald-500/20">
+          <div className="bg-emerald-50 text-emerald-600 p-3.5 rounded-xl border border-emerald-100">
             <Radio className="w-6 h-6" />
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg flex items-center justify-between">
+        <div className="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-sm flex items-center justify-between">
           <div>
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+            <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
               Instalaciones Recientes
             </p>
-            <h3 id="kpi-instalaciones-r" className="text-3xl font-black text-white mt-1">
+            <h3 id="kpi-instalaciones-r" className="text-3xl font-black text-slate-900 mt-1">
               {kpis.instalacionesRecientes}
             </h3>
           </div>
-          <div className="bg-amber-500/10 text-amber-400 p-3.5 rounded-xl border border-amber-500/20">
+          <div className="bg-amber-50 text-amber-600 p-3.5 rounded-xl border border-amber-100">
             <CalendarPlus className="w-6 h-6" />
           </div>
         </div>
@@ -285,10 +285,10 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
 
       {/* 2. Gráficos Analíticos */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg lg:col-span-2">
+        <div className="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-sm lg:col-span-2">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-blue-400" />
+            <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-blue-600" />
               Evolución Histórica de Instalaciones
             </h4>
           </div>
@@ -297,10 +297,10 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
           </div>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg">
+        <div className="bg-white border border-slate-200/90 p-5 rounded-2xl shadow-sm">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-              <PieIcon className="w-4 h-4 text-emerald-400" />
+            <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+              <PieIcon className="w-4 h-4 text-emerald-600" />
               Ventas por Categoría
             </h4>
           </div>
@@ -311,10 +311,10 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
       </div>
 
       {/* 3. Tabla Interactiva de Matriz con Filtros */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-lg overflow-hidden">
+      <div className="bg-white border border-slate-200/90 rounded-2xl shadow-sm overflow-hidden">
         
         {/* Barra de Filtros y Búsqueda */}
-        <div className="p-4 sm:p-5 border-b border-slate-800 bg-slate-950/40 flex flex-col md:flex-row gap-3 justify-between items-center">
+        <div className="p-4 sm:p-5 border-b border-slate-100 bg-slate-50/70 flex flex-col md:flex-row gap-3 justify-between items-center">
           <div className="relative w-full md:w-96">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
@@ -326,7 +326,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             />
           </div>
 
@@ -338,7 +338,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
                 setSelectedEstado(e.target.value);
                 setCurrentPage(1);
               }}
-              className="bg-slate-950 border border-slate-800 rounded-xl text-xs px-3 py-2 text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="bg-white border border-slate-200 rounded-xl text-xs px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             >
               <option value="">Todos los Estados ({estadosList.length})</option>
               {estadosList.map((est) => (
@@ -353,7 +353,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
                 setSelectedComercio(e.target.value);
                 setCurrentPage(1);
               }}
-              className="bg-slate-950 border border-slate-800 rounded-xl text-xs px-3 py-2 text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-[200px]"
+              className="bg-white border border-slate-200 rounded-xl text-xs px-3 py-2 text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-[200px] shadow-sm"
             >
               <option value="">Todos los Comercios ({comerciosList.length})</option>
               {comerciosList.map((com) => (
@@ -365,8 +365,8 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
 
         {/* Tabla */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm text-slate-300">
-            <thead className="bg-slate-950 text-slate-400 uppercase text-[11px] font-bold tracking-wider">
+          <table className="w-full text-left text-xs sm:text-sm text-slate-600">
+            <thead className="bg-slate-50 text-slate-700 uppercase text-[11px] font-bold tracking-wider border-b border-slate-200">
               <tr>
                 <th className="p-4">Serial Dispositivo</th>
                 <th className="p-4">RIF / IDEN</th>
@@ -376,7 +376,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
                 <th className="p-4 text-center">Detalle</th>
               </tr>
             </thead>
-            <tbody id="tbody-matriz" className="divide-y divide-slate-800/80 bg-slate-900">
+            <tbody id="tbody-matriz" className="divide-y divide-slate-100 bg-white">
               {paginatedData.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="p-10 text-center text-slate-400">
@@ -385,27 +385,27 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
                 </tr>
               ) : (
                 paginatedData.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-800/50 transition">
-                    <td className="p-4 font-mono font-bold text-blue-400">
+                  <tr key={idx} className="hover:bg-slate-50/80 transition">
+                    <td className="p-4 font-mono font-bold text-blue-600">
                       {row['SERIAL DISPOSITIVO'] || 'N/A'}
                     </td>
-                    <td className="p-4 font-mono text-slate-400">
+                    <td className="p-4 font-mono text-slate-500">
                       {row['RIF / IDEN'] || 'N/A'}
                     </td>
-                    <td className="p-4 font-semibold text-white">
+                    <td className="p-4 font-semibold text-slate-900">
                       {row['COMERCIO'] || 'N/A'}
                     </td>
-                    <td className="p-4 text-slate-300">
+                    <td className="p-4 text-slate-600">
                       {row['CIUDAD'] || 'N/A'}, {row['ESTADO'] || ''}
                     </td>
-                    <td className="p-4 text-slate-400">
+                    <td className="p-4 text-slate-500">
                       {row['FECHA DE INSTALACIÓN'] || 'N/A'}
                     </td>
                     <td className="p-4 text-center">
                       <button
                         onClick={() => onOpenDetail(row)}
                         title="Ver ficha completa del dispositivo"
-                        className="bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 hover:text-blue-300 p-2 rounded-lg border border-blue-500/20 transition cursor-pointer"
+                        className="bg-blue-50 hover:bg-blue-100 text-blue-600 p-2 rounded-lg border border-blue-200/80 transition cursor-pointer"
                       >
                         <Eye className="w-4 h-4" />
                       </button>
@@ -419,7 +419,7 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
 
         {/* Paginación */}
         {filteredData.length > itemsPerPage && (
-          <div className="p-4 border-t border-slate-800 bg-slate-950/40 flex items-center justify-between text-xs text-slate-400">
+          <div className="p-4 border-t border-slate-100 bg-slate-50/70 flex items-center justify-between text-xs text-slate-500">
             <span>
               Mostrando {(currentPage - 1) * itemsPerPage + 1} a{' '}
               {Math.min(currentPage * itemsPerPage, filteredData.length)} de{' '}
@@ -429,14 +429,14 @@ export const MatrizView: React.FC<MatrizViewProps> = ({ data, onOpenDetail }) =>
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 disabled:opacity-30 rounded-lg text-slate-200 transition flex items-center gap-1 cursor-pointer"
+                className="px-3 py-1.5 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-40 rounded-lg text-slate-700 transition flex items-center gap-1 shadow-sm cursor-pointer"
               >
                 <ChevronLeft className="w-4 h-4" /> Anterior
               </button>
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-                className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 disabled:opacity-30 rounded-lg text-slate-200 transition flex items-center gap-1 cursor-pointer"
+                className="px-3 py-1.5 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-40 rounded-lg text-slate-700 transition flex items-center gap-1 shadow-sm cursor-pointer"
               >
                 Siguiente <ChevronRight className="w-4 h-4" />
               </button>

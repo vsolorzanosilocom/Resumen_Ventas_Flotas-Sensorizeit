@@ -36,11 +36,11 @@ export const DetailModal: React.FC<DetailModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden flex flex-col max-h-[85vh]"
+        className="bg-white border border-slate-200 rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden flex flex-col max-h-[85vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Cabecera del Modal */}
-        <div className="bg-slate-950 px-6 py-4 border-b border-slate-800 flex justify-between items-center">
+        <div className="bg-slate-900 px-6 py-4 border-b border-slate-800 flex justify-between items-center">
           <div>
             <h3 className="font-bold text-lg text-white tracking-tight">{title}</h3>
             {subtitle && <p className="text-xs text-slate-400 mt-0.5">{subtitle}</p>}
@@ -62,11 +62,11 @@ export const DetailModal: React.FC<DetailModalProps> = ({
               {Object.entries(data)
                 .filter(([_, val]) => val !== undefined && val !== null && String(val).trim() !== '')
                 .map(([key, val]) => (
-                  <div key={key} className="bg-slate-950/50 p-3 rounded-xl border border-slate-800/80">
-                    <span className="text-[10px] text-slate-400 block font-bold uppercase tracking-wider mb-0.5">
+                  <div key={key} className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                    <span className="text-[10px] text-slate-500 block font-bold uppercase tracking-wider mb-0.5">
                       {key}
                     </span>
-                    <span className="text-sm font-semibold text-slate-100 break-words">
+                    <span className="text-sm font-semibold text-slate-900 break-words">
                       {String(val)}
                     </span>
                   </div>
@@ -76,20 +76,20 @@ export const DetailModal: React.FC<DetailModalProps> = ({
 
           {/* Vista de Tabla Agrupada */}
           {tableData && tableData.length > 0 && (
-            <div className="overflow-x-auto rounded-xl border border-slate-800">
-              <table className="w-full text-left text-xs text-slate-300">
-                <thead className="bg-slate-950 text-slate-400 uppercase font-semibold">
+            <div className="overflow-x-auto rounded-xl border border-slate-200">
+              <table className="w-full text-left text-xs text-slate-700">
+                <thead className="bg-slate-100 text-slate-700 uppercase font-semibold">
                   <tr>
                     {(columns || Object.keys(tableData[0])).map((col) => (
-                      <th key={col} className="p-3 border-b border-slate-800">{col}</th>
+                      <th key={col} className="p-3 border-b border-slate-200">{col}</th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 bg-slate-900/60">
+                <tbody className="divide-y divide-slate-100 bg-white">
                   {tableData.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-800/40">
+                    <tr key={idx} className="hover:bg-slate-50">
                       {(columns || Object.keys(tableData[0])).map((col) => (
-                        <td key={col} className="p-3 font-medium text-slate-200">
+                        <td key={col} className="p-3 font-medium text-slate-800">
                           {row[col] || 'N/A'}
                         </td>
                       ))}
@@ -102,10 +102,10 @@ export const DetailModal: React.FC<DetailModalProps> = ({
         </div>
 
         {/* Pie del Modal */}
-        <div className="bg-slate-950/80 px-6 py-3 border-t border-slate-800 flex justify-end">
+        <div className="bg-slate-50 px-6 py-3 border-t border-slate-200 flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold rounded-lg transition cursor-pointer"
+            className="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded-lg transition cursor-pointer"
           >
             Cerrar
           </button>
